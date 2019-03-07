@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import countries from "../countries.json";
 import { NavLink } from "react-router-dom";
 
-class CountryList extends Component {
-  render() {
+const CountryList=() =>{
     return (
       <div className="list-group">
         {countries.map((country, index) => {
@@ -11,7 +10,7 @@ class CountryList extends Component {
             <NavLink
               key={index}
               className="list-group-item list-group-item-action"
-              to={country.cca3}
+              to={`/${country.cca3}`}
             >
               {country.name.official}
             </NavLink>
@@ -19,7 +18,6 @@ class CountryList extends Component {
         })}
       </div>
     );
-  }
 }
 
 export default CountryList;
